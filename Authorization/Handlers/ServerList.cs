@@ -34,7 +34,7 @@ namespace Authorization.Handlers {
                         string hashedSalt = Core.Constants.MD5(dbSalt);
                         string finalHash = Core.Constants.MD5(hashedPassword + hashedSalt + doubleHashedPassword);
 
-                        if (finalHash == dbPassword)
+                        if (password == dbPassword)
                         {
                             var IsOnline = Managers.SessionManager.Instance.Sessions.Select(n => n.Value).Where(n => n.ID == id && n.IsActivated && !n.IsEnded).Count();
                             if (IsOnline == 0) {

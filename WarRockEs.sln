@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "Authorization\Authorization.csproj", "{CA190DFE-9A01-4B33-BEC1-41DA8F6E73CF}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -15,16 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{DB6726C2-7F7E-4913-9229-72EF8F4F682C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DOCU", "DOCU", "{1F428F36-38E3-427F-B669-6A5B2E9A33CC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{1F428F36-38E3-427F-B669-6A5B2E9A33CC}"
 	ProjectSection(SolutionItems) = preProject
 		Cosas que explorar.txt = Cosas que explorar.txt
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5ACB8AC2-10EB-4C94-808C-CB7B7028B374}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A8D3E1C-3441-4B82-961D-DC261DFF0ADC}"
 	ProjectSection(SolutionItems) = preProject
-		Localization.xml = Localization.xml
-		ServerConfig.xml = ServerConfig.xml
+		Database.sql = Database.sql
 	EndProjectSection
 EndProject
 Global
@@ -51,5 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61AD2896-0651-4B54-982F-657786BCFD50}
 	EndGlobalSection
 EndGlobal
