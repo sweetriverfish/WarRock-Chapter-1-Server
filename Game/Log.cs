@@ -16,12 +16,10 @@ namespace Game
         public void WriteLog(ConsoleColor colorClass, ConsoleColor colorMessage, string message)
         {
             DateTime logTime = DateTime.Now;
-          //  StackFrame stackFrame = new StackTrace().GetFrame(2);
             lock (logLock) // Blocks all other threads till this code is executed
             {
                 Console.Write(logTime.ToString("[dd/MM/yy HH:mm:ss:fff]") + " [");
                 Console.ForegroundColor = colorClass;
-            //    Console.Write(stackFrame.GetMethod().ReflectedType.Name + "." + stackFrame.GetMethod().Name);
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.Write("] » ");
                 Console.ForegroundColor = colorMessage;

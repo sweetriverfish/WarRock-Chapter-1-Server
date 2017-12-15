@@ -1,17 +1,4 @@
-﻿/*
- * Alter EMU - Written By CodeDragon
- * 
- * Emulator Verion: 5.0.1
- * Credits:
- *  - CodeDragon
- *  - Basser
- *          
- * Special Thanks:
- *  - DarkRaptor
- * 
- */
-
-using System;
+﻿using System;
 using System.Threading;
 
 namespace Authorization {
@@ -24,9 +11,7 @@ namespace Authorization {
 
         static void Main(string[] args) {
 
-            Console.Title = "「Starting」AlterEmu authentication server";
-    //        Console.WindowWidth = Console.LargestWindowWidth - 25;
-    //        Console.WindowHeight = Console.LargestWindowHeight - 25;
+            Console.Title = "「Starting」Authentication server";
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@" _______        _______ _______  ______ _______ _______ _     _");
             Console.WriteLine(@" |_____| |         |    |______ |_____/ |______ |  |  | |     |");
@@ -73,7 +58,7 @@ namespace Authorization {
 
 
             while (isRunning) {
-                Console.Title = string.Format("「AlterEmu-Authentication」Players: {0} | Peak: {1} | Total: {2}", onlinePlayers, playerPeak, totalPlayers);
+                Console.Title = string.Format("「Authentication」Players: {0} | Peak: {1} | Total: {2}", onlinePlayers, playerPeak, totalPlayers);
                 // TODO: Update the console title + basic queries.
                 Thread.Sleep(1000);
             }

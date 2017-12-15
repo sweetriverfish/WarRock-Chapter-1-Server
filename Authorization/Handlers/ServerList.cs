@@ -7,8 +7,6 @@ using MySql.Data.MySqlClient;
 namespace Authorization.Handlers {
     class ServerList : Networking.PacketHandler {
         protected override void Process(Entities.User u) {
-           // string username = GetString(2).ToLower().Trim();
-            //string password = GetString(3).ToLower().Trim();
             string username = GetString(2);
             string password = GetString(3);
             bool forceDisconnect = true;

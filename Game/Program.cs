@@ -1,16 +1,4 @@
-﻿/*
- * Alter EMU - Written By CodeDragon
- * 
- * Emulator Verion: 5.0.1
- * Credits:
- *  - CodeDragon
- *  - Basser
- *  - DarkRaptor        
- *  - PJ1712
- *
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,9 +19,7 @@ namespace Game {
 
          
 
-            Console.Title = "WarRockEs - [Starting] Game Server";
-    //        Console.WindowWidth = Console.LargestWindowWidth - 25;
-   //         Console.WindowHeight = Console.LargestWindowHeight - 25;
+            Console.Title = "[Starting] Game Server";
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(@" _______        _______ _______  ______ _______ _______ _     _");
             Console.WriteLine(@" |_____| |         |    |______ |_____/ |______ |  |  | |     |");
@@ -145,7 +131,7 @@ namespace Game {
             while (isRunning) {
 
                 TimeSpan runTime = DateTime.Now - startTime;
-                Console.Title = string.Format("「AlterEmu-Game」Uptime {0} | Players: {1} | Peak: {2} | Rooms: {3}", runTime.ToString(@"dd\:hh\:mm\:ss"), Managers.UserManager.Instance.Sessions.Values.Count, Managers.UserManager.Instance.Peak, Managers.ChannelManager.Instance.RoomCount);
+                Console.Title = string.Format("「Game Server」Uptime {0} | Players: {1} | Peak: {2} | Rooms: {3}", runTime.ToString(@"dd\:hh\:mm\:ss"), Managers.UserManager.Instance.Sessions.Values.Count, Managers.UserManager.Instance.Peak, Managers.ChannelManager.Instance.RoomCount);
 
                 if(serverLoops % 5 == 0) {
                     Parallel.ForEach(Managers.UserManager.Instance.Sessions.Values, user => {

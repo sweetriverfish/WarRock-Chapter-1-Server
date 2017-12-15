@@ -17,8 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{1F428F36-38E3-427F-B669-6A5B2E9A33CC}"
 	ProjectSection(SolutionItems) = preProject
-		Cosas que explorar.txt = Cosas que explorar.txt
-		TODO.txt = TODO.txt
+		Paquetes.txt = Paquetes.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A8D3E1C-3441-4B82-961D-DC261DFF0ADC}"
