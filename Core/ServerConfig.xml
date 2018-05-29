@@ -11,7 +11,7 @@
     <Port>3306</Port>
     <UserName>root</UserName>
     <UserPassword></UserPassword>
-    <DatabaseName>wres2</DatabaseName>
+    <DatabaseName>masterserver</DatabaseName>
     </Database>
     <Server>
       <LogActivity>1</LogActivity>

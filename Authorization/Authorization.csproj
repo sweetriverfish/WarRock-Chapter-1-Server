@@ -67,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthConfig.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Databases.cs" />
     <Compile Include="Entities\Server.cs" />
@@ -76,9 +75,8 @@
     <Compile Include="Handlers\Internal\Authorization.cs" />
     <Compile Include="Handlers\Internal\Ping.cs" />
     <Compile Include="Handlers\Internal\PlayerAuthorization.cs" />
-    <Compile Include="Handlers\Launcher.cs" />
     <Compile Include="Handlers\Nickname.cs" />
-    <Compile Include="Handlers\ServerList.cs" />
+    <Compile Include="Handlers\PlayerLogin.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Managers\PacketManager.cs" />
     <Compile Include="Managers\ServerManager.cs" />
@@ -89,7 +87,6 @@
     <Compile Include="Packets\Internal\Authorize.cs" />
     <Compile Include="Packets\Internal\Ping.cs" />
     <Compile Include="Packets\Internal\PlayerAuthorization.cs" />
-    <Compile Include="Packets\Launcher.cs" />
     <Compile Include="Packets\ServerList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WarRock.es Core")]
-[assembly: AssemblyDescription("WarRock.es dependencies")]
+[assembly: AssemblyTitle("Core")]
+[assembly: AssemblyDescription("dependencies")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Core")]
-[assembly: AssemblyCopyright("Copyright © CodeDragon,DarkRaptor  2013-2016")]
+[assembly: AssemblyCopyright("Copyright © CodeDragon,DarkRaptor  2013-2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
