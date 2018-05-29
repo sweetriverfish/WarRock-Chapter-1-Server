@@ -4,7 +4,7 @@ using System;
 namespace Game {
     class Config {
         public static string AUTH_SERVER_IP = "127.0.0.1";
-        public static byte SERVER_ID = 0;                   //DARK: Investigate this shit
+        public static byte SERVER_ID = 0;                   
         public static string SERVER_KEY = "SERVER-KEY";
         public static string SERVER_NAME = "AlterEmu";
         public static string SERVER_IP = "";

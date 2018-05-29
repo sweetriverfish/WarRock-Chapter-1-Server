@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Config>
 
   <AuthenticationServer>
@@ -7,18 +7,18 @@
   the server database
   -->
     <Database>
-      <Host>127.0.0.1</Host>
-      <Port>3306</Port>
-      <UserName>root</UserName>
-      <UserPassword></UserPassword>
-      <DatabaseName>wres2</DatabaseName>
+    <Host>127.0.0.1</Host>
+    <Port>3306</Port>
+    <UserName>root</UserName>
+    <UserPassword></UserPassword>
+    <DatabaseName>wres2</DatabaseName>
     </Database>
     <Server>
       <LogActivity>1</LogActivity>
       <LogPackets>1</LogPackets>
     </Server>
   </AuthenticationServer>
-
+  
   <GameServer>
     <!-- Game database. We recommend using the same DB for both game and authentication server-->
     <Database>
@@ -31,9 +31,9 @@
     <AuthServer>
       <!-- Enter the Authentication server IP. If both are running on the same machine, change it 127.0.0.1
       Key is unused atm.
-      -->
+      -->     
       <IP>127.0.0.1</IP>
-      <Key>AlterEmuV5.0.1</Key>
+      <Key>AlterEmuV5.0.1</Key>  
     </AuthServer>
 
     <!-- Game Server DATA.-->

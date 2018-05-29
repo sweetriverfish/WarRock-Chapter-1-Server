@@ -7,8 +7,6 @@ using MySql.Data.MySqlClient;
 namespace Authorization.Handlers {
     class ServerList : Networking.PacketHandler {
         protected override void Process(Entities.User u) {
-           // string username = GetString(2).ToLower().Trim();
-            //string password = GetString(3).ToLower().Trim();
             string username = GetString(2);
             string password = GetString(3);
             bool forceDisconnect = true;
@@ -34,7 +32,7 @@ namespace Authorization.Handlers {
                         string hashedSalt = Core.Constants.MD5(dbSalt);
                         string finalHash = Core.Constants.MD5(hashedPassword + hashedSalt + doubleHashedPassword);
 
-                        if (finalHash == dbPassword)
+                        if (password == dbPassword)
                         {
                             var IsOnline = Managers.SessionManager.Instance.Sessions.Select(n => n.Value).Where(n => n.ID == id && n.IsActivated && !n.IsEnded).Count();
                             if (IsOnline == 0) {
