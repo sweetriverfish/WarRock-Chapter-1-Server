@@ -10,11 +10,11 @@ namespace Authorization.Entities {
         public uint SessionID { get; private set; }
         public bool IsActivated { get; private set; }
         public bool IsEnded { get; private set; }
+        public byte ServerID { get; private set; }
 
         public DateTime Created { get; private set; }
         public DateTime Activated { get; private set; }
 
-        private byte currentServer = 0;
 
         public Session(uint sessionId, uint userId, string username, string displayname, byte _accessLevel) : base(userId, username, displayname, _accessLevel){
             this.SessionID = sessionId;
@@ -30,7 +30,7 @@ namespace Authorization.Entities {
         public void Activate(byte serverId) {
             if (IsActivated) return;
             IsActivated = true;
-            this.currentServer = serverId;
+            this.ServerID = serverId;
             Activated = DateTime.Now;
 
             lock (Program.sessionLock)

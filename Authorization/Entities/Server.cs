@@ -120,10 +120,18 @@ namespace Authorization.Entities {
             if (isDisconnect) return;
             isDisconnect = true;
 
-            if (ID > 0) {
+            if (ID > 0)
+            {     
+                //Flush player sessions associated with this server
+                foreach(Entities.Session Session in Managers.SessionManager.Instance.Sessions.Values)
+                {
+                    if (Session.IsActivated && Session.ServerID == ID)
+                        Session.End();
+                }
+                
+                //Remove server
                 Managers.ServerManager.Instance.Remove((byte)ID);
             }
-
             try { socket.Close(); } catch { }
         }
 
