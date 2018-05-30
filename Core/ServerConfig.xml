@@ -14,13 +14,14 @@
     <DatabaseName>masterserver</DatabaseName>
     </Database>
     <Server>
+      <MaximumGameServers>10</MaximumGameServers>
       <LogActivity>1</LogActivity>
       <LogPackets>1</LogPackets>
     </Server>
   </AuthenticationServer>
   
   <GameServer>
-    <!-- Game database. We recommend using the same DB for both game and authentication server-->
+    <!-- Game database-->
     <Database>
       <Host>127.0.0.1</Host>
       <Port>3306</Port>

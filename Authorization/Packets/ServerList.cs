@@ -55,7 +55,7 @@ Player Info
 Will display like this
 ID, IP, Prem, Exp, Dinar, Kill, Death, Scale(CQC,UBAN,BG)
              * */
-
+             
                 ArrayList serverList = Managers.ServerManager.Instance.GetAllAuthorized();
                 Append(serverList.Count);               // Server count
                 foreach (Entities.Server server in serverList) {
@@ -66,7 +66,7 @@ ID, IP, Prem, Exp, Dinar, Kill, Death, Scale(CQC,UBAN,BG)
                     Append(server.TotalPlayers);        // Server Player count
                     Append((byte)server.Type);          // Server Type
                 }
-
+                
                 Fill(4, -1);
                 //Append(-1); // ID
                 //Append(-1); // Name
