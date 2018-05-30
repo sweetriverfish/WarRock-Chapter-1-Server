@@ -16,6 +16,21 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`masterserver` /*!40100 DEFAULT CHARACTE
 
 USE `masterserver`;
 
+/*Table structure for table `player_statistics` */
+
+DROP TABLE IF EXISTS `player_statistics`;
+
+CREATE TABLE `player_statistics` (
+  `online` bigint(20) unsigned DEFAULT '0',
+  `peak` bigint(20) unsigned DEFAULT '0',
+  `total` bigint(20) unsigned DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `player_statistics` */
+
+insert  into `player_statistics`(`online`,`peak`,`total`) values 
+(0,0,0);
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -33,8 +48,8 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`status`,`displayname`,`password`,`passwordsalt`) values 
-(0,'darkraptor',1,'DarkRaptor','7710EB97FF9D999D12B4AF7729920B7422EB0C58D9ACD552CBA27888EA7D0C76','aaaaaaaaaa'),
-(1,'test',1,'Mono1','C036F6A9EBB0308EC638492371227F00F134EA6EE43AEA1337DF38474253ACAA','aaaaaaaaaa');
+(1,'darkraptor',1,'DarkRaptor','7710EB97FF9D999D12B4AF7729920B7422EB0C58D9ACD552CBA27888EA7D0C76','aaaaaaaaaa'),
+(2,'test',1,'Mono1','C036F6A9EBB0308EC638492371227F00F134EA6EE43AEA1337DF38474253ACAA','aaaaaaaaaa');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

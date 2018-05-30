@@ -81,6 +81,7 @@
     <Compile Include="Managers\PacketManager.cs" />
     <Compile Include="Managers\ServerManager.cs" />
     <Compile Include="Managers\SessionManager.cs" />
+    <Compile Include="Managers\StatisticsManager.cs" />
     <Compile Include="Networking\GameServerListener.cs" />
     <Compile Include="Networking\PacketHandler.cs" />
     <Compile Include="Networking\ServerListener.cs" />

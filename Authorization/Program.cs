@@ -5,9 +5,9 @@ namespace Authorization {
     class Program {
         private static bool isRunning = false;
         public static object sessionLock = new Object();
-        public static int totalPlayers = 0;
-        public static int onlinePlayers = 0;
-        public static int playerPeak = 0;
+        public static ulong totalPlayers = 0;
+        public static ulong onlinePlayers = 0;
+        public static ulong playerPeak = 0;
 
         static void Main(string[] args) {
 
@@ -42,8 +42,8 @@ namespace Authorization {
 
 
             Console.ForegroundColor = ConsoleColor.Gray;
-            
 
+           
             while (isRunning) {
                 Console.Title = string.Format("「Authentication」Players: {0} | Peak: {1} | Total: {2}", onlinePlayers, playerPeak, totalPlayers);
                 // TODO: Update the console title + basic queries.

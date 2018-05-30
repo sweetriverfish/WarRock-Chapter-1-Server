@@ -39,12 +39,13 @@ namespace Authorization.Entities {
                 if (Program.onlinePlayers > Program.playerPeak)
                     Program.playerPeak = Program.onlinePlayers;
                 Program.totalPlayers++;
+
+                Managers.StatisticsManager.Instance.UpdatePlayerCount(Program.onlinePlayers, Program.playerPeak, Program.totalPlayers);
             }
         }
 
         public void End() {
-            // TODO: Save to database.
-            //DARKRAPTOR: DONE IN GAMESERVER
+           
             lock (Program.sessionLock)
             {
                 Program.onlinePlayers--;
@@ -52,6 +53,7 @@ namespace Authorization.Entities {
 
             IsEnded = true;
             Managers.SessionManager.Instance.Remove(this.SessionID);
+            Managers.StatisticsManager.Instance.UpdatePlayerCount(Program.onlinePlayers, Program.playerPeak, Program.totalPlayers);
         }
 
     }
