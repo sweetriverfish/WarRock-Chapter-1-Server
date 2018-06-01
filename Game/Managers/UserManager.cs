@@ -48,11 +48,11 @@ namespace Game.Managers {
                     if (u.Authorized) {
                         // SAVE THE PLAYER DATA //
                         string query = string.Concat("UPDATE user_details SET kills = '", u.Kills ,"', deaths = '", u.Deaths ,"', headshots = '", u.Headshots ,"', xp = '", u.XP ,"', play_time = '0', rounds_played = '", u.RoundsPlayed ,"', bombs_planted = '", u.BombsPlanted ,"', bombs_defused = '", u.BombsDefused ,"', flags_taken = '", u.FlagsTaken,"', wins = '", u.Wins ,"', losses = '", u.Losses ,"', vehicles_destroyed = '", u.VehiclesDestroyed ,"' WHERE id = ", u.ID, ";");
-                        Databases.Game.Query(query);
+                        Databases.Game.AsyncQuery(query);
 
                         //Save session end
                         string query2 = string.Concat("UPDATE sessions SET session_end ='", System.DateTime.Now.ToString("yyyyMMddHHmmss") ,"', expired = '1' WHERE expired = '0' AND sessionid = ", u.SessionID, ";");
-                        Databases.Game.Query(query2);
+                        Databases.Game.AsyncQuery(query2);
                     }
                 }
                 // TELL THE AUTH SERVER THAT THE SESSION IS EXPIRED //

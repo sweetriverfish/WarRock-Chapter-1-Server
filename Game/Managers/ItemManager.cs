@@ -215,7 +215,7 @@ namespace Game.Managers {
 
 
                         query += string.Concat("INSERT INTO item_equipment (`code`, `class1`, `class2`, `class3`, `class4`, `class5`) VALUES ('", code.ToUpper(), "', '", sEngeneer, "', '", sMedic, "', '", sSniper, "', '", sAssault, "', '", sHeavy, "');");
-                        Databases.Game.Query(query);
+                        Databases.Game.AsyncQuery(query);
                     }
 
                     for (byte i = 1; i <= extraList.Count; i++) {
@@ -248,7 +248,7 @@ namespace Game.Managers {
                             query += string.Concat("INSERT INTO item_shop (`code`, `buyable`, `req_level`, `req_premium`, `add_dinar`, `cost`) VALUES ('", code.ToUpper(), "', '", buyable ? 1 : 0, "', '", reqLevel, "', '", reqPremium ? 1 : 0, "', '", add_dinar, "', '", cost, "');");
                         }
                         
-                        Databases.Game.Query(query);
+                        Databases.Game.AsyncQuery(query);
                     }
 
                     return true;

@@ -50,7 +50,7 @@ namespace Game.Handlers {
                                                                 else
                                                                 {
                                                                     // Extend & insert into db :)
-                                                                    Databases.Game.Query(string.Concat("INSERT INTO user_inventory (`id`, `owner`, `code`, `startdate`, `length`, `price`, `expired`, `deleted`) VALUES (NULL, '", u.ID, "', '", item.Code.ToUpper(), "', '", utcTime, "', '", itemLength, "', '", price, "', '0', '0'); UPDATE user_details SET money='", u.Money, "' WHERE id = ", u.ID, ";"));
+                                                                    Databases.Game.AsyncQuery(string.Concat("INSERT INTO user_inventory (`id`, `owner`, `code`, `startdate`, `length`, `price`, `expired`, `deleted`) VALUES (NULL, '", u.ID, "', '", item.Code.ToUpper(), "', '", utcTime, "', '", itemLength, "', '", price, "', '0', '0'); UPDATE user_details SET money='", u.Money, "' WHERE id = ", u.ID, ";"));
                                                                     invItem.ExpireDate = invItem.ExpireDate.AddSeconds(itemLength);
                                                                     u.Inventory.Rebuild();
                                                                     u.Send(new Packets.Itemshop(u));
@@ -62,12 +62,12 @@ namespace Game.Handlers {
 
                                                                 try {
                                                                     cmd = new MySql.Data.MySqlClient.MySqlCommand(string.Concat("INSERT INTO user_inventory (`id`, `owner`, `code`, `startdate`, `length`, `price`, `expired`, `deleted`) VALUES (NULL, '", u.ID, "', '", item.Code.ToUpper(), "', '", utcTime, "', '", itemLength, "', '", price, "', '0', '0');"), Databases.Game.connection);
-                                                                    cmd.ExecuteNonQuery();
+                                                                    cmd.ExecuteNonQueryAsync();
                                                                     itemdbId = (uint)cmd.LastInsertedId;
                                                                 } catch { itemdbId = 0; }
 
                                                                 if (itemdbId > 0) {
-                                                                    Databases.Game.Query(string.Concat("UPDATE user_details SET money='", u.Money, "' WHERE id = ", u.ID, ";"));
+                                                                    Databases.Game.AsyncQuery(string.Concat("UPDATE user_details SET money='", u.Money, "' WHERE id = ", u.ID, ";"));
                                                                     u.Inventory.Add(new Objects.Inventory.Item(-1, itemdbId, item.Code, (utcTime + itemLength)));
                                                                     u.Inventory.Rebuild();
                                                                     u.Send(new Packets.Itemshop(u));
