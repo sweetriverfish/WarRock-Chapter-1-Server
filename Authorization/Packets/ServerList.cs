@@ -63,15 +63,15 @@ ID, IP, Prem, Exp, Dinar, Kill, Death, Scale(CQC,UBAN,BG)
                     Append(server.Displayname);         // Server Name
                     Append(server.IP);                  // Server IP
                     Append((int)Core.Enums.Ports.Game); // Server Port
-                    Append(server.TotalPlayers);        // Server Player count
+                    Append(server.TotalPlayerCount);        // Server Player count. Maximum 3600
                     Append((byte)server.Type);          // Server Type
                 }
                 
                 Fill(4, -1);
-                //Append(-1); // ID
-                //Append(-1); // Name
-                //Append(-1); // Master? 1 = YES 0 = NO
-                //Append(-1); // ?
+              //  Append(-1); // ID
+               // Append(-1); // Name
+               // Append(-1); // Master? 1 = YES 0 = NO
+               // Append(-1); // ?
                 Append(0);
                 Append(0);
         }

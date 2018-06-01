@@ -17,6 +17,7 @@ namespace Authorization.Entities {
         private uint packetCount = 0;
 
         private ushort playerCount = 0;
+        private ushort roomCount   = 0;
 
         private bool isDisconnect = false;
         private bool isAuthorized = false;
@@ -116,6 +117,15 @@ namespace Authorization.Entities {
             }
         }
 
+        public void AddPlayers(ushort currentPlayerCount)
+        {
+            this.playerCount = currentPlayerCount;
+        }
+
+        public void AddRooms(ushort currentCount)
+        {
+            this.roomCount = currentCount;
+        }
         public void Disconnect() {
             if (isDisconnect) return;
             isDisconnect = true;
@@ -136,7 +146,8 @@ namespace Authorization.Entities {
         }
 
         public bool Authorized { get { return this.isAuthorized; } set { } }
-        public ushort TotalPlayers { get { return this.playerCount; } set { } }
+        public ushort TotalPlayerCount { get { return playerCount; } private set { } }
+        public ushort TotalRoomCount { get { return roomCount; } private set { } }
         public string IP { get { return this.ip; } set { } }
         public ServerTypes Type { get { return this.type; } set { } }
     }

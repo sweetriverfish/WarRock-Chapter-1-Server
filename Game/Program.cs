@@ -133,6 +133,7 @@ namespace Game {
                 TimeSpan runTime = DateTime.Now - startTime;
                 Console.Title = string.Format("「Game Server」Uptime {0} | Players: {1} | Peak: {2} | Rooms: {3}", runTime.ToString(@"dd\:hh\:mm\:ss"), Managers.UserManager.Instance.Sessions.Values.Count, Managers.UserManager.Instance.Peak, Managers.ChannelManager.Instance.RoomCount);
 
+                
                 if(serverLoops % 5 == 0) {
                     Parallel.ForEach(Managers.UserManager.Instance.Sessions.Values, user => {
                         if (user.Authorized)
@@ -140,7 +141,10 @@ namespace Game {
                     });
                    
                 }
-                
+
+                //ping to auth  server
+                AuthServer.Send(new Packets.Internal.Ping());
+
                 serverLoops++;
 
                 Thread.Sleep(1000);
