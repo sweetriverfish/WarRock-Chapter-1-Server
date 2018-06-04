@@ -10,7 +10,7 @@ namespace Game.Handlers {
             string username = GetString(2);
             string displayname = GetString(3);
             uint sessionId = GetuInt(4); // Login session Id
-            byte _accessLevel = GetByte(5);
+            byte _accessLevel = GetByte(7);
 
                 if (userId > 0 && username.Length > 2 && displayname.Length > 2 && sessionId > 0)
                 {
