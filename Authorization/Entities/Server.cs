@@ -17,6 +17,7 @@ namespace Authorization.Entities {
         private uint packetCount = 0;
 
         private ushort playerCount = 0;
+        private ushort roomCount   = 0;
 
         private bool isDisconnect = false;
         private bool isAuthorized = false;
@@ -116,19 +117,37 @@ namespace Authorization.Entities {
             }
         }
 
+        public void AddPlayers(ushort currentPlayerCount)
+        {
+            this.playerCount = currentPlayerCount;
+        }
+
+        public void AddRooms(ushort currentCount)
+        {
+            this.roomCount = currentCount;
+        }
         public void Disconnect() {
             if (isDisconnect) return;
             isDisconnect = true;
 
-            if (ID > 0) {
+            if (ID > 0)
+            {     
+                //Flush player sessions associated with this server
+                foreach(Entities.Session Session in Managers.SessionManager.Instance.Sessions.Values)
+                {
+                    if (Session.IsActivated && Session.ServerID == ID)
+                        Session.End();
+                }
+                
+                //Remove server
                 Managers.ServerManager.Instance.Remove((byte)ID);
             }
-
             try { socket.Close(); } catch { }
         }
 
         public bool Authorized { get { return this.isAuthorized; } set { } }
-        public ushort TotalPlayers { get { return this.playerCount; } set { } }
+        public ushort TotalPlayerCount { get { return playerCount; } private set { } }
+        public ushort TotalRoomCount { get { return roomCount; } private set { } }
         public string IP { get { return this.ip; } set { } }
         public ServerTypes Type { get { return this.type; } set { } }
     }

@@ -4,7 +4,7 @@ namespace Authorization
 {
     public class Config
     {
-        public static byte MAXIMUM_SERVER_COUNT = 4; //TODO: DARK: INVESTIGATE THIS SHIT
+        public static byte MAXIMUM_SERVER_COUNT = 10;
         public static string[] AUTH_DATABASE;
         public static byte SERVER_LOGGER = 1;
         public static byte PACKET_LOGGER = 1;
@@ -26,8 +26,12 @@ namespace Authorization
                     XMLConfig.Read("AuthenticationServer", "Database", "DatabaseName")
                 };
 
-                SERVER_LOGGER = Convert.ToByte(XMLConfig.Read("AuthenticationServer", "Server", "LogActivity"));
-                PACKET_LOGGER = Convert.ToByte(XMLConfig.Read("AuthenticationServer", "Server", "LogPackets"));
+                MAXIMUM_SERVER_COUNT     = Convert.ToByte(XMLConfig.Read("AuthenticationServer", "Server", "MaximumGameServers"));
+                SERVER_LOGGER            = Convert.ToByte(XMLConfig.Read("AuthenticationServer", "Server", "LogActivity"));
+                PACKET_LOGGER            = Convert.ToByte(XMLConfig.Read("AuthenticationServer", "Server", "LogPackets"));
+
+                if (MAXIMUM_SERVER_COUNT > 10)
+                    MAXIMUM_SERVER_COUNT = 10;
 
                 result = true;
             }

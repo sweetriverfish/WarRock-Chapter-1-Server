@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Authorization.Managers {
     class ServerManager {
-        private const byte MAX_SERVERS = 4;
+        private byte MAX_SERVERS = Config.MAXIMUM_SERVER_COUNT; //TODO: Is the second page usable?
 
         private Hashtable servers = new Hashtable();
 
@@ -20,8 +20,8 @@ namespace Authorization.Managers {
 
             if (serverId > 0) {
                 // Add server to the hashtable :p
-                s.OnAuthorize(serverId, name, ip, port, type);
-                servers.Add(serverId, s);
+                 s.OnAuthorize(serverId, name, ip, port, type);
+                 servers.Add(serverId, s);
             }
 
             return serverId;

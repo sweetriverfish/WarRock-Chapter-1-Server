@@ -1,4 +1,7 @@
-﻿namespace Core {
+﻿using System.Text;
+using System.Security.Cryptography;
+
+namespace Core {
     public class Constants {
         public const byte Error_OK = 1;
         public const byte xOrKeySend = 0x96;
@@ -14,19 +17,21 @@
             return !objAlphaNumericPattern.IsMatch(input);
         }
 
-        public static string MD5(string Input)
-        {
-            System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(Input);
-            byte[] hash = md5.ComputeHash(inputBytes);
+        public static string GenerateSHAHash (string input)
+            {
+              SHA256 SHA = SHA256.Create();
 
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+              byte[] inputBytes = Encoding.ASCII.GetBytes(input);
+              byte[] hash       = SHA.ComputeHash(inputBytes);
+
+            StringBuilder stringbuilder = new StringBuilder();
             for (int i = 0; i < hash.Length; i++)
             {
-                sb.Append(hash[i].ToString("x2"));
+                stringbuilder.Append(hash[i].ToString("x2"));
             }
-            return sb.ToString();
-        }
+            return stringbuilder.ToString();
+
+            }           
     
     }
 }

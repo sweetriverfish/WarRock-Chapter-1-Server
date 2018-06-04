@@ -10,17 +10,18 @@ namespace Authorization.Handlers.Internal {
             if (Enum.IsDefined(typeof(PlayerAuthorizationErrorCodes), errorCode)) {
                 PlayerAuthorizationErrorCodes enumErrorCode = (PlayerAuthorizationErrorCodes)errorCode;
                 uint targetId = GetuInt(1);
-
+                string username = GetString(3);
+                byte accessLevel = GetByte(4);
                 switch (enumErrorCode) {
 
                     // A new player logs in.
+                    //Raptor 1/6/18: Added more checks just in case someone managed to perform a MiM while another player is choosing server.
+                    //That would lead to a registered, not active session which could be stolen if targetId is known
                     case PlayerAuthorizationErrorCodes.Login: {
-
                             Session session = Managers.SessionManager.Instance.Get(targetId);
                             if (session != null) {
-                                if (!session.IsActivated) {
+                                if (!session.IsActivated && session.Name == username && session.AccessLevel == accessLevel ) {
                                     session.Activate((byte)s.ID);
-
                                     s.Send(new Packets.Internal.PlayerAuthorization(session));
                                     ServerLogger.Instance.Append(ServerLogger.AlertLevel.Information, "Player with ID " + targetId.ToString() + " has been authorized");
                                 } else {
@@ -29,7 +30,7 @@ namespace Authorization.Handlers.Internal {
                                 }
                             } else {
                                 s.Send(new Packets.Internal.PlayerAuthorization(PlayerAuthorizationErrorCodes.InvalidSession, targetId));
-                                ServerLogger.Instance.Append(ServerLogger.AlertLevel.ServerError, "Player with ID " + targetId.ToString() + "rejected because the session is NOT invalid");
+                                ServerLogger.Instance.Append(ServerLogger.AlertLevel.ServerError, "Player with ID " + targetId.ToString() + "rejected because the session is NOT valid");
                             }
 
                             break;

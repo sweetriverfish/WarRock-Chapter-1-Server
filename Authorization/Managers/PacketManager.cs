@@ -19,8 +19,7 @@ namespace Authorization.Managers {
             AddInternal(Core.Enums.InternalPackets.PlayerAuthorization, new Handlers.Internal.PlayerAuthorization());
 
             // External Packets //
-            AddExternal(Enums.Packets.Launcher, new Handlers.Launcher());
-            AddExternal(Enums.Packets.ServerList, new Handlers.ServerList());
+            AddExternal(Enums.Packets.ServerList, new Handlers.PlayerLogin());
             AddExternal(Enums.Packets.Nickname, new Handlers.Nickname());
         }
 

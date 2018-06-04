@@ -119,7 +119,7 @@ namespace Core.Networking {
 
         public string Build() {
             string strOutput = builder.ToString();
-        //    Console.WriteLine("OUT :: " + strOutput);
+            Console.WriteLine("OUT :: " + strOutput);
             return string.Concat(strOutput, (char)(0x0A));
         }
 
