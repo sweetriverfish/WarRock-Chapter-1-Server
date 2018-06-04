@@ -242,7 +242,7 @@ namespace Game.Objects
             byte  _objectDamagedId = handler.GetByte(3);
             bool _isSubWeapon = handler.GetBool(9);
             bool _isRadiusWeapon = handler.GetBool(10);
-            uint _radius = handler.GetuInt(11); //vehicles doesn´t seem to have a hitbox
+            uint _radius = handler.GetuInt(11); //vehicles don´t seem to have a hitbox
 
             string _weaponCode = handler.GetString(22).ToUpper();    
             short _damageTaken = 0;
