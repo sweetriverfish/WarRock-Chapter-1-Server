@@ -33,7 +33,7 @@ namespace Authorization.Handlers
                         //The  user does exist:  retrieve data
                         uint id                      = reader.GetUInt32(0);
                         string dbUserName            = inputUserName;
-                        byte status                  = reader.GetByte(2); //0 = global network ban
+                        byte status                  = reader.GetByte(2); //0 = global network account ban
                         string displayname           = reader.GetString(3);
                         string dbPassword            = reader.GetString(4);
                         string dbPasswordSalt        = reader.GetString(5);
