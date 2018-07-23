@@ -1,0 +1,58 @@
+GAMESERVER.SQL
+==============
+CHAT
+----
+chat_common(#id, server, timestamp, message, user_id)
+	chat_private_clan(#_id, clan_id)
+	chat_public_lobby(#_id, channel_id, target_all)
+	chat_public_room(#_id, channel_id, room_id, team_side, target_all)
+
+CLAN
+----
+clan(#id, [U]name, members, tag, wins, losses, draws, master, recruitment, disbanded, validated, date_creation, slogan)
+
+GAME
+----
+commands(#action, permlevel)
+coupons(#id, code, uses, dinarreward)
+damage_multipliers(head, torso, lower_limbs, sniperbone)
+game_levels_gained(#id, user_id, game_id, current_level, levels_gained, timestamp)
+gameconfig(dinarrate, exprate, max_room_count, max_team_difference, levelup_base_reward, bombtime, explosivetime)
+macaddress_blacklist(#id, macaddress)
+sessions(#id, user_id, session_id, expired, session_start, session_end, server)
+
+ITEMS
+-----
+item_extra(#code, active, name)
+item_weapons(#code, active, name)
+	item_equipment(#_code, class1, class2, class3, class4, class5)
+	item_shop(#_code, buyable, req_level, req_premium_add_dinar, cost)
+	item_target_info(#_code, power, personal, surface, ship, air)
+
+
+MAPS
+----
+map_data(#id, name, flag_count, flag_state, channels, gamemode, restriction_pay_type, vehiclecount)
+	map_vehicles(#id, _map_id, vehicle_map_id, _vehicle_code)
+
+USERS
+-----
+user_details(#_id, kills, death, headshots, xp, money, cash, premium, premium_expiredate, play_time, round_played, bombs_planted, bombs_defused, _clan_id, clan_rank, flags_taken, wins, losses, vehicles_destroyed)
+user_equipment(#_id, class1, class2, class3, class4, class5)
+user_inventory(#id, _user_id, _code, retail, startdate, lenght, price, price_cash, expired, deleted, deleted_web)
+
+VEHICLES
+--------
+vehicletypes(#code, name, seats, health, sapwninterval, type)
+vehicleweapons(#code, damage, hitbox)
+	vehicleseats(#id, _vehicle_code, seat_id, seat_code, _mainweapon, mainweaponclib, mainweaponmagazine, _secondweapon, secondweaponclip, secondweaponmagazine)
+	
+LOGINSERVER.SQL
+===============
+masterserver(online, peak, total)
+users(#id, username, status, displayname, password, passwordsalt)
+
+OLD
+===
+updater(format, launcher, updater, client, sub, option, download_url)
+
