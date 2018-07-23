@@ -1,0 +1,36 @@
+GAMESERVER.SQL
+==============
+chat_private_clan(id, clan_id, server, message, timestamp, sender_id)
+chat_public_lobby(#id, server, channel_id, sender_id, target_all, message, timestamp)
+chat_public_room(#id, server, channel_id, sender_id, room_id, team_side, target_all, message, timestamp)
+clan(#id, name, members, tag, wins, losses, draws, master, recruitment, disbanded, validated, date_creation, eslogan)
+commands(#id, #action, permlevel)
+coupons(#id, #code, uses, dinarreward)
+damage_multipliers(head, torso, lower_limbs, sniperbone)
+game_levels_gained(id, user_id, game_id, current_level, levels_gained, timestamp)
+gameconfig(dinarrate, exprate, max_room_count, max_team_difference, levelup_base_reward, bombtime, explosivetime)
+item_equipment(#code, class1, class2, class3, class4, class5)
+item_extra(#id, code, active, name)
+item_shop(#code, buyable, req_level, req_premium_add_dinar, cost)
+item_target_info(#code, power, personal, surface, ship, air)
+item_weapons(#id, code, active, name)
+macaddress_blacklist(#index, macaddress)
+map_data(#id, name, flag_count, flag_state, channels, gamemode, restriction_pay_type, vehiclecount)
+map_vehicles(#index, MapID, MapName, VehicleMapID, VehicleCode)
+sessions(#id, userid, sessionid, expired, session_start, session_end, server)
+user_details(#id, kills, death, headshots, xp, money, cash, premium, premium_expiredate, play_time, round_played, bombs_planted, bombs_defused, clanid, clanrank, flags_taken, wins, losses, vehicles_destroyed)
+user_equipment(#owner, class1, class2, class3, class4, class5)
+user_inventory(#id, owner, code, retail, startdate, lenght, price, price_cash, expired, deleted, deleted_web)
+vehicleseats(#index, vehiclecode, seatid, seatcode, mainweapon, mainweaponclib, mainweaponmagazine, secondweapon, secondweaponclip, secondweaponmagazine)
+vehicletypes(#index, name, code, seats, health, sapwninterval, type)
+vehicleweapons(#id, #code, damage, hitbox)
+
+LOGINSERVER.SQL
+===============
+masterserver(online, peak, total)
+users(#id, username, status, displayname, password, passwordsalt)
+
+OLD
+===
+updater(format, launcher, updater, client, sub, option, download_url)
+
