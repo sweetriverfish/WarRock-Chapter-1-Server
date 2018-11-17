@@ -328,7 +328,7 @@ namespace Game.Objects.Inventory
             }
 
             // SAVE LISTS TO THE DATABASE // // TODO: Implement better query.
-            Databases.Game.Query(string.Concat("UPDATE user_equipment SET `class1` =  '", Lists[0], "', `class2` =  '", Lists[1], "', `class3` =  '", Lists[2], "', `class4` =  '", Lists[3], "', `class5` =  '", Lists[4], "' WHERE owner =", User.ID, ";"));
+            Databases.Game.AsyncQuery(string.Concat("UPDATE user_equipment SET `class1` =  '", Lists[0], "', `class2` =  '", Lists[1], "', `class3` =  '", Lists[2], "', `class4` =  '", Lists[3], "', `class5` =  '", Lists[4], "' WHERE owner =", User.ID, ";"));
 
             return Lists;
         }

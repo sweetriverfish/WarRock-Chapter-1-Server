@@ -128,7 +128,7 @@ namespace Game.Entities {
             }
 
             // Creating session //
-            Databases.Game.Query(string.Concat("INSERT INTO sessions (`userid`, `sessionid`, `expired`, `session_start`, `server`) VALUES ('", ID, "', '", SessionID, "', '0', '", System.DateTime.Now.ToString("yyyyMMddHHmmss"),"', '", Game.Config.SERVER_NAME, "');"));
+            Databases.Game.AsyncQuery(string.Concat("INSERT INTO sessions (`userid`, `sessionid`, `expired`, `session_start`, `server`) VALUES ('", ID, "', '", SessionID, "', '0', '", System.DateTime.Now.ToString("yyyyMMddHHmmss"),"', '", Game.Config.SERVER_NAME, "');"));
 
             //Updating the userlist
              this.UserListPage = 0;
@@ -199,7 +199,7 @@ namespace Game.Entities {
             } else {
                 result.Close();
                 string query = string.Concat("INSERT INTO user_details (`id`, `kills`, `deaths`, `headshots`, `xp`, `money`, `premium`, `premium_expiredate`, `play_time`, `rounds_played`, `bombs_planted`, `bombs_defused`, `clanid`, `clanrank`, `flags_taken`, `wins`, `losses`, `vehicles_destroyed`) VALUES ('", this.ID, "', '0', '0', '0', '0', '50000', '0', '0', '0', '0','0','0','0','0','0','0','0','0');");
-                Databases.Game.Query(query);
+                Databases.Game.AsyncQuery(query);
                 return Load();
             }
         }

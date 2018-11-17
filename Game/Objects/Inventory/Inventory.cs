@@ -86,7 +86,7 @@ namespace Game.Objects.Inventory {
             }
 
             if (expireQueries.Length > 0) {
-                Databases.Game.Query(expireQueries); // Run all the querries at once
+                Databases.Game.AsyncQuery(expireQueries); // Run all the querries at once
             }
 
             result = Databases.Game.Select(
@@ -118,7 +118,7 @@ namespace Game.Objects.Inventory {
                             result.Close();
                     } catch { }
 
-                    Databases.Game.Query(string.Concat("INSERT INTO user_equipment (`owner`, `class1`, `class2`, `class3`, `class4`, `class5`) VALUES ('", User.ID ,"', 'DA02,DB01,DF01,DR01,^,^,^,^', 'DA02,DB01,DF01,DQ01,^,^,^,^', 'DA02,DB01,DG05,DN01,^,^,^,^', 'DA02,DB01,DC02,DN01,^,^,^,^', 'DA02,DB01,DJ01,DL01,^,^,^,^');")); // Insert into database.
+                    Databases.Game.AsyncQuery(string.Concat("INSERT INTO user_equipment (`owner`, `class1`, `class2`, `class3`, `class4`, `class5`) VALUES ('", User.ID ,"', 'DA02,DB01,DF01,DR01,^,^,^,^', 'DA02,DB01,DF01,DQ01,^,^,^,^', 'DA02,DB01,DG05,DN01,^,^,^,^', 'DA02,DB01,DC02,DN01,^,^,^,^', 'DA02,DB01,DJ01,DL01,^,^,^,^');")); // Insert into database.
                 }
                 try {
                     if (!result.IsClosed)
