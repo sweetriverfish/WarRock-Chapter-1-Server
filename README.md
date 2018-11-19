@@ -1,6 +1,7 @@
-# Servidor-Chapter-1-WarRock
+# WarRock-Chapter-1-Server
 
 
-Servidor para WarRock Capítulo 1 act. PF-23 originalmente desarrollado por CodeDragon. 
+WarRock chapter 1 server for patch PF-20.
 
-Actualmente por DarkRaptor, PJ1712, Tirachinas y Zeakk.
+Originally developed by CodeDragon.
+Later by DarkRaptor, PJ1712, Tirachinas and Zeakk.
