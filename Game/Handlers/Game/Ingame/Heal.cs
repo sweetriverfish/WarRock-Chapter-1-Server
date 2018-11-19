@@ -45,7 +45,7 @@ namespace Game.Handlers.Game.Ingame
                                 _healAmount = 400;
                             else
                             {
-                                if (Player.Weapon == 82) //Adrenaline
+                                if (Player.Weapon == 65) //Adrenaline //ITEM ID IS A BAD WAY TO DO SO AS THEY MAY CHANGE BETWEEN PATCHES
                                 {
                                     if (Target.Health < 400)
                                         _healAmount = (ushort)(400 - Target.Health);
@@ -75,23 +75,21 @@ namespace Game.Handlers.Game.Ingame
         {
             ushort _healAmount = 0;
 
-            switch(_weaponIndex)
+            switch(_weaponIndex) //ITEM ID IS A BAD WAY TO DO SO AS THEY MAY CHANGE BETWEEN PATCHES
             {
 
-                case 77:                  //Med.Kit 1
+                case 60:                  //Med.Kit 1
                     _healAmount = 300;
                     break;
-
-                case 78:                   //Med.Kit 2
+                case 61:                   //Med.Kit 2
                     _healAmount = 450;
                     break;
-                case 79:                    //Med. Kit 3
+                case 62:                    //Med. Kit 3
                     _healAmount = 600;
                     break;
-
-                case 85:                   // hpKit
-                    _healAmount = 200;
-                    break;
+                //case 85:                   // hpKit //Is it even in game in this version?
+                //    _healAmount = 200;
+                //    break;
                 default:
                     _healAmount = 0;
                     break;
