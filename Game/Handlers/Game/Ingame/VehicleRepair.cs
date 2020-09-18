@@ -50,10 +50,10 @@ namespace Game.Handlers.Game.Ingame
 
             switch(_playerWeapon)
             {
-                case 80: //default spanner
+                case 63: //default spanner
                     _repairRate = 0.10;
                     break;
-                case 81: //pipe wrench
+                case 64: //pipe wrench
                     _repairRate = 0.15;
                     break;
 
