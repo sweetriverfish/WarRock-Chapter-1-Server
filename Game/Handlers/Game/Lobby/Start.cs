@@ -24,16 +24,18 @@ namespace Game.Handlers.Game {
                                     }
                                     else
                                     {
-                                        //string _balanceTeams = Cristina.Core.Cristina.Localization.GetLocMessageFrom("BALANCE_TEAMS_BEFORE");
-                                        Cristina.Core.Cristina.Chat.SaytoRoom("Equlibrad equipos antes de empezar", Room);
+                                        string _balanceTeams = Cristina.Core.Cristina.Localization.GetLocMessageFrom("BALANCE_TEAMS_BEFORE");
+                                        Cristina.Core.Cristina.Chat.SaytoRoom(_balanceTeams, Room);
+                                        //Cristina.Core.Cristina.Chat.SaytoRoom("Equlibrad equipos antes de empezar", Room);
                                     }
                                         
                                 }
                                 else
                                 {
-                                  //  string _waitForAnother = Cristina.Core.Cristina.Localization.GetLocMessageFrom("WAIT_FOR_PLAYER");
-                                    Cristina.Core.Cristina.Chat.SayToPlayer("Espera a más jugadores para empezar", Player.User);
-                                }                               
+                                    string _waitForAnother = Cristina.Core.Cristina.Localization.GetLocMessageFrom("WAIT_FOR_PLAYER");
+                                    Cristina.Core.Cristina.Chat.SayToPlayer(_waitForAnother, Player.User);
+                                    //Cristina.Core.Cristina.Chat.SayToPlayer("Espera a más jugadores para empezar", Player.User);
+                            }                               
                             
                         }
                     }

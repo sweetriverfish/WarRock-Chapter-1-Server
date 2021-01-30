@@ -276,11 +276,12 @@ namespace Game.Entities {
                             //Tell de players
                             if(State == RoomState.Playing)
                             {
-                           //     string _message = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_JOINED");
-                             //   if (_message.Contains("%/nickname/%"))
-                               //     _message = _message.Replace("%/nickname/%", u.Displayname);
+                                string _message = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_JOINED_GAME");
+                                if (_message.Contains("%/nickname/%"))
+                                    _message = _message.Replace("%/nickname/%", u.Displayname);
 
-                                Cristina.Core.Cristina.Chat.SaytoRoom(u.Displayname + " se ha conectado", this);
+                                Cristina.Core.Cristina.Chat.SaytoRoom(_message, this);
+                                //Cristina.Core.Cristina.Chat.SaytoRoom(u.Displayname + " se ha conectado", this);
                             }
                                 
                             
@@ -404,12 +405,13 @@ namespace Game.Entities {
                                 //tell the players
                                 if (State == RoomState.Playing)
                                 {
-                               //     string _playerLeft = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_LEFT");
+                                    string _playerLeft = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_LEFT_GAME");
 
-                                 //   if (_playerLeft.Contains("%/nickname/%"))
-                                   //    _playerLeft = _playerLeft.Replace("/nickname/%", u.Displayname);
+                                    if (_playerLeft.Contains("%/nickname/%"))
+                                       _playerLeft = _playerLeft.Replace("%/nickname/%", u.Displayname);
 
-                                    Cristina.Core.Cristina.Chat.SaytoRoom(u.Displayname + " ha salido de la sala", this);
+                                    Cristina.Core.Cristina.Chat.SaytoRoom(_playerLeft, this);
+                                    //Cristina.Core.Cristina.Chat.SaytoRoom(u.Displayname + " ha salido de la sala", this);
                                 }
                                    
                             }

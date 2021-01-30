@@ -145,17 +145,19 @@ namespace Game.Entities {
                     InLobby.Send(new Packets.UserList(InLobby.UserListPage, UserList));
             }
 
-         //   string _welcomeMessage1 = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_WELCOME");
-           // string _welcomeMessage2 = Cristina.Core.Cristina.Localization.GetLocMessageFrom("CRISTINA_VERSION");
+            string _welcomeMessage1 = Cristina.Core.Cristina.Localization.GetLocMessageFrom("PLAYER_WELCOME");
+            string _welcomeMessage2 = Cristina.Core.Cristina.Localization.GetLocMessageFrom("CRISTINA_VERSION");
 
-         //   if (_welcomeMessage1.Contains("%/nickname/%"))
-           //    _welcomeMessage1 = _welcomeMessage1.Replace("%/nickname/%", Displayname);
+            if (_welcomeMessage1.Contains("%/nickname/%"))
+               _welcomeMessage1 = _welcomeMessage1.Replace("%/nickname/%", Displayname);
 
-         //   if (_welcomeMessage2.Contains("%/version/%"))
-           //    _welcomeMessage2 = _welcomeMessage2.Replace("%/version/%", Cristina.Core.Cristina.Version.ToString());
+            //if (_welcomeMessage2.Contains("%/version/%"))
+            //   _welcomeMessage2 = _welcomeMessage2.Replace("%/version/%", Cristina.Core.Cristina.Version.ToString());
 
-            Cristina.Core.Cristina.Chat.SayToPlayer("Hola " + Displayname + ", soy el asistente personal del servidor", this);
-            Cristina.Core.Cristina.Chat.SayToPlayer("Mi version es la 0.4", this);
+            Cristina.Core.Cristina.Chat.SayToPlayer(_welcomeMessage1, this);
+           // Cristina.Core.Cristina.Chat.SayToPlayer(_welcomeMessage2, this);
+            //Cristina.Core.Cristina.Chat.SayToPlayer("Hola " + Displayname + ", soy el asistente personal del servidor", this);
+            //Cristina.Core.Cristina.Chat.SayToPlayer("Mi version es la 0.4", this);
 
             //Logging
             ServerLogger.Instance.Append(ServerLogger.AlertLevel.Information, String.Format("The player {0} logged on", Displayname));

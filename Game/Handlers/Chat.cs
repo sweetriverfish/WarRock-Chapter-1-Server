@@ -17,7 +17,7 @@ namespace Game.Handlers {
                     string message = GetString(3);
                     string realMessage = message.Split(new string[] { ">>" + Convert.ToChar(0x1D).ToString() }, StringSplitOptions.None)[1].Replace(Convert.ToChar(0x1D), Convert.ToChar(0x20));
 
-                if(IsCommand(realMessage))
+                if (IsCommand(realMessage))
                     {
                         //removes /cris header
                         realMessage = realMessage.Remove(0, 6);
@@ -39,11 +39,12 @@ namespace Game.Handlers {
                                 Command.Process(u);
                             }
                            
-                        }                     
+                        }
                         else
                         {
-                  //      string  _notFound = Cristina.Core.Cristina.Localization.GetLocMessageFrom("UNKNOWN_COMMAND");
-                         Cristina.Core.Cristina.Chat.SayToPlayer("El comando no existe", u);
+                        string  _notFound = Cristina.Core.Cristina.Localization.GetLocMessageFrom("UNKNOWN_COMMAND");
+                        Cristina.Core.Cristina.Chat.SayToPlayer(_notFound, u);
+                        //Cristina.Core.Cristina.Chat.SayToPlayer("El comando no existe", u);
                         }
                     }
                     else
@@ -160,7 +161,7 @@ namespace Game.Handlers {
                         }
                         else
                         {
-                            u.Disconnect(); // Message is to long?
+                            u.Disconnect(); // Message is too long?
                         }
                     }
                 }

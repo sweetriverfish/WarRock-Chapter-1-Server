@@ -22,7 +22,7 @@ namespace Game.Cristina
       public static Core Cristina { get { return _cristina; } }
       
       //Cristina CORE information
-      public string Name { get { return "Cristina"; } }
+      public string Name { get { return "Server"; } }
       public double Version = 0.4;
       
       //Cristina modules
