@@ -38,6 +38,7 @@ namespace Game.Handlers
                 }
                 else
                 {//throw here invalid code
+                    u.Send(new Packets.Coupon(-2, 0));
                 }
             }
             else
