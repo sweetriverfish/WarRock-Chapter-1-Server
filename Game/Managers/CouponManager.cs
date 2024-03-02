@@ -26,7 +26,7 @@ namespace Game.Managers
                 {
                     while (Reader.Read())
                     {
-                        byte _index = Reader.GetByte("id");
+                        int _index = Reader.GetInt32("id");
                         string _code = Reader.GetString("code");
                         int _uses = Reader.GetInt32("uses");
                         uint _dinarReward = Reader.GetUInt32("dinarreward");
@@ -82,7 +82,7 @@ namespace Game.Managers
             return null;
         }
 
-        public Objects.Coupon getCoupon(byte _index)
+        public Objects.Coupon getCoupon(int _index)
         {
             foreach (var Coupon in CouponList)     
                 if (Coupon.Index == _index)
@@ -91,7 +91,7 @@ namespace Game.Managers
             return null;
         }
 
-        public void UpdateCouponUses(byte _index, int _currentUses)
+        public void UpdateCouponUses(int _index, int _currentUses)
         {
             foreach (var Coupon in CouponList)  
                 if (Coupon.Index == _index)

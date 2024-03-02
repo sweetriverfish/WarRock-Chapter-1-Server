@@ -9,14 +9,14 @@ namespace Game.Objects
     public class Coupon
     {
 
-        public byte Index { get; private set; }
+        public int Index { get; private set; }
         public string Code { get; private set; }
         public uint DinarReward { get; private set; }
         public int Uses { get; set; }
         public string ItemReward { get; set; }
 
 
-        public Coupon(byte _index, string _code, int _uses, uint _dinarReward, string _itemReward)
+        public Coupon(int _index, string _code, int _uses, uint _dinarReward, string _itemReward)
         {
             Index = _index;
             Code = _code;
