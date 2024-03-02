@@ -174,13 +174,14 @@ CREATE TABLE `gameconfig` (
   `max_team_difference` int(10) unsigned DEFAULT NULL,
   `levelup_base_reward` int(10) unsigned NOT NULL,
   `bombtime` bigint(10) DEFAULT NULL,
-  `explosivetime` bigint(10) NOT NULL DEFAULT '180000'
+  `explosivetime` bigint(10) NOT NULL DEFAULT '180000',
+  `allow_start_alone` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `gameconfig` */
 
-insert  into `gameconfig`(`dinarrate`,`exprate`,`max_room_count`,`max_team_difference`,`levelup_base_reward`,`bombtime`,`explosivetime`) values 
-(5,5,100,1,5000,40000,120000);
+insert  into `gameconfig`(`dinarrate`,`exprate`,`max_room_count`,`max_team_difference`,`levelup_base_reward`,`bombtime`,`explosivetime`,`allow_start_alone`) values
+(5,5,100,1,5000,40000,120000,0);
 
 /*Table structure for table `item_equipment` */
 

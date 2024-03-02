@@ -18,6 +18,7 @@ namespace Game
         public static uint LevelUpMoneyReward = 25000u;
         public static long BombTime = 45000;
         public static long ExplosiveRoundTime = 180000;
+        public static bool AllowStartAlone = false;
 
 
         //Damage multipliers
@@ -29,36 +30,37 @@ namespace Game
         public static bool Read()
         {
 
-                MySqlCommand Cmd = new MySqlCommand("SELECT gameconfig.*, damage_multipliers.* FROM gameconfig, damage_multipliers", Databases.Game.connection);
-                MySqlDataReader Reader = Cmd.ExecuteReader();
+            MySqlCommand Cmd = new MySqlCommand("SELECT gameconfig.*, damage_multipliers.* FROM gameconfig, damage_multipliers", Databases.Game.connection);
+            MySqlDataReader Reader = Cmd.ExecuteReader();
 
-                try
+            try
+            {
+                if (Reader.HasRows)
                 {
-                    if (Reader.HasRows)
+                    while (Reader.Read())
                     {
-                        while (Reader.Read())
-                        {
-                            DinarRate = Reader.GetDouble("dinarrate");
-                            ExpRate = Reader.GetDouble("exprate");
-                            MaxRoomCount = Reader.GetUInt16("max_room_count");
-                            MaxTeamDifference = Reader.GetUInt16("max_team_difference");
-                            LevelUpMoneyReward = Reader.GetUInt16("levelup_base_reward");
-                            BombTime = Reader.GetInt64("bombtime");
-                            ExplosiveRoundTime = Reader.GetInt64("explosivetime");
+                        DinarRate = Reader.GetDouble("dinarrate");
+                        ExpRate = Reader.GetDouble("exprate");
+                        MaxRoomCount = Reader.GetUInt16("max_room_count");
+                        MaxTeamDifference = Reader.GetUInt16("max_team_difference");
+                        LevelUpMoneyReward = Reader.GetUInt16("levelup_base_reward");
+                        BombTime = Reader.GetInt64("bombtime");
+                        ExplosiveRoundTime = Reader.GetInt64("explosivetime");
+                        AllowStartAlone = Reader.GetBoolean("allow_start_alone");
 
 
-                            HeadMultiplier = Reader.GetDouble("head");
-                            TorsoMultiplier = Reader.GetDouble("torso");
-                            LowerLimbsMultiplier = Reader.GetDouble("lower_limbs");
-                            SniperBoneMultiplier = Reader.GetDouble("sniperbone");
-                        }
-                        
+                        HeadMultiplier = Reader.GetDouble("head");
+                        TorsoMultiplier = Reader.GetDouble("torso");
+                        LowerLimbsMultiplier = Reader.GetDouble("lower_limbs");
+                        SniperBoneMultiplier = Reader.GetDouble("sniperbone");
                     }
-                    Reader.Close();
-
-                  return true;
+                        
                 }
-                catch { return false; }
+                Reader.Close();
+
+                return true;
+            }
+            catch { return false; }
         }
     }
 }
