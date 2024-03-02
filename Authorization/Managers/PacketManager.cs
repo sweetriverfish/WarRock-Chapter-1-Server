@@ -21,6 +21,7 @@ namespace Authorization.Managers {
             // External Packets //
             AddExternal(Enums.Packets.ServerList, new Handlers.PlayerLogin());
             AddExternal(Enums.Packets.Nickname, new Handlers.Nickname());
+            AddExternal(Enums.Packets.Launcher, new Handlers.Launcher());
         }
 
         private void AddInternal(Core.Enums.InternalPackets packetType, PacketHandler handler) {

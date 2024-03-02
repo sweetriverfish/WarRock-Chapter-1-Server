@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Authorization</RootNamespace>
     <AssemblyName>Authorization</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -75,6 +75,7 @@
     <Compile Include="Handlers\Internal\Authorization.cs" />
     <Compile Include="Handlers\Internal\Ping.cs" />
     <Compile Include="Handlers\Internal\PlayerAuthorization.cs" />
+    <Compile Include="Handlers\Launcher.cs" />
     <Compile Include="Handlers\Nickname.cs" />
     <Compile Include="Handlers\PlayerLogin.cs" />
     <Compile Include="Log.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Packets\Internal\Authorize.cs" />
     <Compile Include="Packets\Internal\Ping.cs" />
     <Compile Include="Packets\Internal\PlayerAuthorization.cs" />
+    <Compile Include="Packets\Launcher.cs" />
     <Compile Include="Packets\ServerList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

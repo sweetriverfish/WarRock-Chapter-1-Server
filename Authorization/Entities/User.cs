@@ -146,5 +146,6 @@ namespace Authorization.Entities {
 
         public bool Authorized { get { return this.isAuthorized; } set { } }
         public uint SessionID { get { return this.sessionId; } set { } }
+        public string RemoteEndIP => socket.RemoteEndPoint.ToString().Split(':')[0];
     }
 }
