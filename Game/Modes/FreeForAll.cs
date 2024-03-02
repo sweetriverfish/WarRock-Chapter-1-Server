@@ -30,8 +30,16 @@
 
         public override void Process() 
         {
-            if (Room.DownTick <= 0 || Room.Players.Count <= 1)
-                Room.EndGame(Winner());
+            if (!GameConfig.AllowStartAlone)
+            {
+                if (Room.DownTick <= 0 || Room.Players.Count <= 1)
+                    Room.EndGame(Winner());
+            }
+            else
+            {
+                if (Room.DownTick <= 0)
+                    Room.EndGame(Winner());
+            }
         }
 
         public override bool IsGoalReached() {

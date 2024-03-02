@@ -52,8 +52,11 @@ namespace Game.Modes {
         }
 
         private bool RoundRunning() {
-            if (playersAlive[(byte)Team.Derbaran] == 0 && !bombPlanted) return false;   // Deb : DEAD + NO BOMB
-            if (playersAlive[(byte)Team.NIU] == 0) return false; // NIU : DEAD
+            if (!GameConfig.AllowStartAlone)
+            {
+                if (playersAlive[(byte)Team.Derbaran] == 0 && !bombPlanted) return false;   // Deb : DEAD + NO BOMB
+                if (playersAlive[(byte)Team.NIU] == 0) return false; // NIU : DEAD
+            }
             if (bombPlanted && bombDefused) return false; // Bomb = Defused
             if (Room.DownTick <= 0) return false;
 
@@ -81,9 +84,7 @@ namespace Game.Modes {
                     } else {
                         Room.EndGame(WinningTeam());
                     }
-                
                 }
-                
             }
         }
 
@@ -113,17 +114,22 @@ namespace Game.Modes {
                     playersAlive[(byte)Team.NIU] = (ushort)Room.Players.Select(p => p.Value).Where(p => p.IsAlive && p.Health > 0 && p.Team == Team.NIU).Count();
 
                     if (!first) {
-                        if (currentRound > 0) {
-                            if (playersAlive[0] == 0 || playersAlive[1] == 0) {
-                                Team winning = Team.None;
+                        if (currentRound > 0)
+                        {
+                            if (!GameConfig.AllowStartAlone)
+                            {
+                                if (playersAlive[0] == 0 || playersAlive[1] == 0)
+                                {
+                                    Team winning = Team.None;
 
-                                if (playersAlive[0] > 0)
-                                    winning = Team.Derbaran;
-                                else
-                                    winning = Team.NIU;
+                                    if (playersAlive[0] > 0)
+                                        winning = Team.Derbaran;
+                                    else
+                                        winning = Team.NIU;
 
-                                Room.EndGame(winning);
-                                return false;
+                                    Room.EndGame(winning);
+                                    return false;
+                                }
                             }
                             Room.Send((new Packets.Mission(Room)).BuildEncrypted());
                             Room.Send((new Packets.StartRound(Room)).BuildEncrypted());

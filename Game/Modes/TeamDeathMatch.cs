@@ -51,11 +51,14 @@ namespace Game.Modes {
             if (Room.DownTick <= 0)
                 Room.EndGame(Winner());
 
-            if (players[0] <= 0)
-                this.Room.EndGame(Team.NIU);
+            if (!GameConfig.AllowStartAlone)
+            {
+                if (players[0] <= 0)
+                    this.Room.EndGame(Team.NIU);
 
-            if (players[1] <= 0)
-                this.Room.EndGame(Team.Derbaran);
+                if (players[1] <= 0)
+                    this.Room.EndGame(Team.Derbaran);
+            }
         }
 
         protected override void OnDeath(Entities.Player killer, Entities.Player target)
