@@ -1,12 +1,10 @@
-﻿using Game.Objects.Inventory;
+using Game.Objects.Inventory;
 using Game.Objects.Items;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-
-
 
 namespace Game.Handlers
 {
@@ -22,12 +20,10 @@ namespace Game.Handlers
                 {
                     Objects.Coupon Coupon = Managers.CouponManager.Instance.getCoupon(_inputCode);
 
-                    Console.WriteLine("coupon uses:"+Coupon.Uses);
                     if (Coupon.Uses != 0)
                     {
                         if (Coupon.DinarReward > 0)
                         {
-                            Console.WriteLine("meow1");
                             u.Money += Coupon.DinarReward;
 
                             Databases.Game.AsyncQuery("UPDATE user_details SET money=" + u.Money + " WHERE id=" + u.ID + ";");
@@ -35,7 +31,6 @@ namespace Game.Handlers
                         }
                         if (Coupon.ItemReward.Length > 0)
                         {
-                            Console.WriteLine("meow2");
                             // Itemreward coupon column format should be ('itemCode-daysDuration,[next item]) ex: 'DF05-30,DF06-30,DF07-30'
                             string[] rewards = Coupon.ItemReward.Split(',');
                             foreach (string reward in rewards)
@@ -115,13 +110,11 @@ namespace Game.Handlers
                         }
                         if (Coupon.Uses > 0)
                         {
-                            Console.WriteLine("meow3");
                             int _usesLeft = Coupon.Uses;
                             _usesLeft--;
 
                             Managers.CouponManager.Instance.UpdateCouponUses(Coupon.Index, _usesLeft);
 
-                            Console.WriteLine("UPDATE coupons SET uses=" + _usesLeft + "  WHERE id=" + Coupon.Index + ";");
                             Databases.Game.AsyncQuery("UPDATE coupons SET uses=" + _usesLeft + "  WHERE id=" + Coupon.Index + ";");
                         }
                         ServerLogger.Instance.Append(String.Concat("Player ", u.Displayname, " used coupon ", _inputCode));
@@ -131,7 +124,6 @@ namespace Game.Handlers
                         // Coupon ran out of uses
                         u.Send(new Packets.Coupon(-1, 0));
                     }
-
                 }
                 else
                 {
