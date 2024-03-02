@@ -31,7 +31,7 @@
         Itemshop = 0x7600,
         Markt = 0x7700,
         UpdateInventory = 0x7900,
-        Coupon = 0x7910,
+        Coupon = 0x8100, // Old: 0x7910
         LevelUp = 0x7920, // Old: 0x8200
 
     }
