@@ -119,18 +119,24 @@ insert  into `commands`(`id`,`action`,`permlevel`) values
 
 DROP TABLE IF EXISTS `coupons`;
 
-CREATE TABLE `coupons` (
-  `id` tinyint(1) NOT NULL,
+CREATE TABLE IF NOT EXISTS `coupons` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `code` varchar(255) NOT NULL DEFAULT '""',
-  `uses` tinyint(10) NOT NULL DEFAULT '0',
+  `uses` int(10) NOT NULL DEFAULT '0',
   `dinarreward` int(10) NOT NULL DEFAULT '0',
+  `itemreward` text NOT NULL,
   PRIMARY KEY (`id`,`code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `coupons` */
 
-insert  into `coupons`(`id`,`code`,`uses`,`dinarreward`) values 
-(0,'ROBINHOOD',0,100000);
+INSERT INTO `coupons` (`id`, `code`, `uses`, `dinarreward`, `itemreward`) VALUES
+(1, 'ROBINHOOD', 0, 100000, ''),
+(2, 'MEOW', -1, 69000, ''),
+(3, 'PEWPEW', -1, 0, 'DF07-30'),
+(4, 'HEALSLUT', -1, 0, 'DQ02-30,DQ03-30,DV01-30'),
+(5, 'NINJA', -1, 0, 'DA04-30'),
+(6, 'ASSAULT', -1, 0, 'DC10-30,DH01-30,DC05-30,DC06-30');
 
 /*Table structure for table `damage_multipliers` */
 

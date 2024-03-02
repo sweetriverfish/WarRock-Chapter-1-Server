@@ -19,7 +19,7 @@ namespace Game.Managers
         {
             try
             {
-                MySqlCommand cmd = new MySqlCommand("SELECT id, code, uses, dinarreward FROM coupons", Databases.Game.connection);
+                MySqlCommand cmd = new MySqlCommand("SELECT id, code, uses, dinarreward, itemreward FROM coupons", Databases.Game.connection);
                 MySqlDataReader Reader = cmd.ExecuteReader();
 
                 if (Reader.HasRows)
@@ -28,10 +28,11 @@ namespace Game.Managers
                     {
                         byte _index = Reader.GetByte("id");
                         string _code = Reader.GetString("code");
-                        byte _uses = Reader.GetByte("uses");
+                        int _uses = Reader.GetInt32("uses");
                         uint _dinarReward = Reader.GetUInt32("dinarreward");
+                        string _itemReward = Reader.GetString("itemreward");
 
-                        Objects.Coupon Coupon = new Objects.Coupon(_index, _code, _uses, _dinarReward);
+                        Objects.Coupon Coupon = new Objects.Coupon(_index, _code, _uses, _dinarReward, _itemReward);
                         UpdateCouponList(Coupon);
                     }
                 }
@@ -90,7 +91,7 @@ namespace Game.Managers
             return null;
         }
 
-        public void UpdateCouponUses(byte _index, byte _currentUses)
+        public void UpdateCouponUses(byte _index, int _currentUses)
         {
             foreach (var Coupon in CouponList)  
                 if (Coupon.Index == _index)
