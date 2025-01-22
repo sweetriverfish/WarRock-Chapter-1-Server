@@ -1,252 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{22784319-4057-4839-9EB9-3D6AD3E19E59}</ProjectGuid>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Game</RootNamespace>
     <AssemblyName>Game</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup>
     <ApplicationIcon>WarRock.ico</ApplicationIcon>
+    <Configuration>Debug</Configuration>
+    <Platform>AnyCPU</Platform>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="mysql.data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <!-- NuGet package references (use the latest version of MySql.Data) -->
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Commands\DisconnectUser.cs" />
-    <Compile Include="Commands\CommandList.cs" />
-    <Compile Include="Commands\Notice.cs" />
-    <Compile Include="Commands\Test.cs" />
-    <Compile Include="Config.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Cristina\Core.cs" />
-    <Compile Include="Cristina\Modules\Chat.cs" />
-    <Compile Include="Cristina\Modules\Localization.cs" />
-    <Compile Include="Databases.cs" />
-    <Compile Include="Entities\Room.cs" />
-    <Compile Include="Entities\Player.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Entities\Vehicle.cs" />
-    <Compile Include="Enums\ChannelType.cs" />
-    <Compile Include="Enums\ChatType.cs" />
-    <Compile Include="Enums\Classes.cs" />
-    <Compile Include="Enums\Command.cs" />
-    <Compile Include="Enums\GameSubs.cs" />
-    <Compile Include="Enums\Hitbox.cs" />
-    <Compile Include="Enums\ItemAction.cs" />
-    <Compile Include="Enums\Mode.cs" />
-    <Compile Include="Enums\Packets.cs" />
-    <Compile Include="Enums\RoomCreationErrors.cs" />
-    <Compile Include="Enums\RoomInviteErrors.cs" />
-    <Compile Include="Enums\RoomJoinErrors.cs" />
-    <Compile Include="Enums\RoomState.cs" />
-    <Compile Include="Enums\RoomUpdateType.cs" />
-    <Compile Include="Enums\Team.cs" />
-    <Compile Include="Enums\VehicleType.cs" />
-    <Compile Include="Enums\VehicleWeaponType.cs" />
-    <Compile Include="Enums\VehWeapDamType.cs" />
-    <Compile Include="GameConfig.cs" />
-    <Compile Include="Handlers\Chat.cs" />
-    <Compile Include="Enums\Premium.cs" />
-    <Compile Include="Handlers\Authorization.cs" />
-    <Compile Include="Handlers\CMDFindPlayer.cs" />
-    <Compile Include="Handlers\Coupon.cs" />
-    <Compile Include="Handlers\Equipment.cs" />
-    <Compile Include="Handlers\Explosives.cs" />
-    <Compile Include="Handlers\Game\Ingame\AmmoRecharge.cs" />
-    <Compile Include="Handlers\Game\Ingame\Artillery.cs" />
-    <Compile Include="Handlers\Game\Ingame\BackToLobby.cs" />
-    <Compile Include="Handlers\Game\Ingame\ConfirmSpawn.cs" />
-    <Compile Include="Handlers\Game\Ingame\EnvironmentDamage.cs" />
-    <Compile Include="Handlers\Game\Ingame\FlagCapture.cs" />
-    <Compile Include="Handlers\Game\Ingame\Heal.cs" />
-    <Compile Include="Handlers\Game\Ingame\KillConfirmed.cs" />
-    <Compile Include="Handlers\Game\Ingame\ObjectDamage.cs" />
-    <Compile Include="Handlers\Game\Ingame\PlaceItemOnGround.cs" />
-    <Compile Include="Handlers\Game\Ingame\PlayerDamage.cs" />
-    <Compile Include="Handlers\Game\Ingame\PlayerDeath.cs" />
-    <Compile Include="Handlers\Game\Ingame\RoundReady.cs" />
-    <Compile Include="Handlers\Game\Ingame\Spawn.cs" />
-    <Compile Include="Handlers\Game\Ingame\Suicide.cs" />
-    <Compile Include="Handlers\Game\Ingame\UseItemsOnGround.cs" />
-    <Compile Include="Handlers\Game\Ingame\VehicleChangeSeat.cs" />
-    <Compile Include="Handlers\Game\Ingame\VehicleEnter.cs" />
-    <Compile Include="Handlers\Game\Ingame\VehicleLeave.cs" />
-    <Compile Include="Handlers\Game\Ingame\VehicleRepair.cs" />
-    <Compile Include="Handlers\Game\Ingame\WeaponSwitch.cs" />
-    <Compile Include="Handlers\Game\Lobby\ChangeMode.cs" />
-    <Compile Include="Handlers\Game\Lobby\ChangeMap.cs" />
-    <Compile Include="Handlers\Game\Lobby\ChangePinglimit.cs" />
-    <Compile Include="Handlers\Game\Lobby\ChangeSide.cs" />
-    <Compile Include="Handlers\Game\Lobby\ChangeSubMode.cs" />
-    <Compile Include="Handlers\Game\Ingame\Setup.cs" />
-    <Compile Include="Handlers\Game\Lobby\Start.cs" />
-    <Compile Include="Handlers\Game\Lobby\ToggleAutostart.cs" />
-    <Compile Include="Handlers\Game\Lobby\ToggleReady.cs" />
-    <Compile Include="Handlers\Game\Lobby\ToggleUserlimit.cs" />
-    <Compile Include="Handlers\Internal\Authorization.cs" />
-    <Compile Include="Handlers\Internal\Connection.cs" />
-    <Compile Include="Handlers\Internal\Ping.cs" />
-    <Compile Include="Handlers\Internal\PlayerAuthorization.cs" />
-    <Compile Include="Handlers\Itemshop.cs" />
-    <Compile Include="Handlers\LeaveServer.cs" />
-    <Compile Include="Handlers\LeaveVehicle.cs" />
-    <Compile Include="Handlers\Ping.cs" />
-    <Compile Include="Handlers\RequestServerTime.cs" />
-    <Compile Include="Handlers\ChangeChannel.cs" />
-    <Compile Include="Handlers\RoomCreation.cs" />
-    <Compile Include="Handlers\RoomData.cs" />
-    <Compile Include="Handlers\RoomInvite.cs" />
-    <Compile Include="Handlers\RoomJoin.cs" />
-    <Compile Include="Handlers\RoomKick.cs" />
-    <Compile Include="Handlers\RoomLeave.cs" />
-    <Compile Include="Handlers\RoomList.cs" />
-    <Compile Include="Handlers\RoomQuickJoin.cs" />
-    <Compile Include="Handlers\RoomSpectate.cs" />
-    <Compile Include="Handlers\Scoreboard.cs" />
-    <Compile Include="Handlers\UserList.cs" />
-    <Compile Include="Log.cs" />
-    <Compile Include="Managers\ChannelManager.cs" />
-    <Compile Include="Managers\ClanManager.cs" />
-    <Compile Include="Managers\CommandManager.cs" />
-    <Compile Include="Managers\CouponManager.cs" />
-    <Compile Include="Managers\ItemManager.cs" />
-    <Compile Include="Managers\MapManager.cs" />
-    <Compile Include="Managers\PacketManager.cs" />
-    <Compile Include="Managers\UserManager.cs" />
-    <Compile Include="Managers\VehicleManager.cs" />
-    <Compile Include="Modes\Conquest.cs" />
-    <Compile Include="Modes\Explosive.cs" />
-    <Compile Include="Modes\FreeForAll.cs" />
-    <Compile Include="Modes\TeamDeathMatch.cs" />
-    <Compile Include="Networking\GameDataHandler.cs" />
-    <Compile Include="Networking\PacketHandler.cs" />
-    <Compile Include="Networking\ServerClient.cs" />
-    <Compile Include="Networking\ServerListener.cs" />
-    <Compile Include="Networking\UDPListener.cs" />
-    <Compile Include="Objects\Channel.cs" />
-    <Compile Include="Objects\Clan.cs" />
-    <Compile Include="Objects\Command.cs" />
-    <Compile Include="Objects\Coupon.cs" />
-    <Compile Include="Objects\GameMode.cs" />
-    <Compile Include="Objects\Inventory\Equipment.cs" />
-    <Compile Include="Objects\Inventory\Inventory.cs" />
-    <Compile Include="Objects\Inventory\Item.cs" />
-    <Compile Include="Objects\ItemOnGround.cs" />
-    <Compile Include="Objects\Items\ItemData.cs" />
-    <Compile Include="Objects\Items\ShopData.cs" />
-    <Compile Include="Objects\Items\Weapon.cs" />
-    <Compile Include="Objects\Items\WeaponData.cs" />
-    <Compile Include="Objects\Map.cs" />
-    <Compile Include="Objects\VehicleSeat.cs" />
-    <Compile Include="Objects\VehicleWeapon.cs" />
-    <Compile Include="Packets\Authorization.cs" />
-    <Compile Include="Packets\ChangeChannel.cs" />
-    <Compile Include="Packets\Chat.cs" />
-    <Compile Include="Packets\CMDFindPlayer.cs" />
-    <Compile Include="Packets\CountDown.cs" />
-    <Compile Include="Packets\Coupon.cs" />
-    <Compile Include="Packets\EndGame.cs" />
-    <Compile Include="Packets\EndRound.cs" />
-    <Compile Include="Packets\Equipment.cs" />
-    <Compile Include="Packets\Explosives.cs" />
-    <Compile Include="Packets\GameData.cs" />
-    <Compile Include="Packets\GameTick.cs" />
-    <Compile Include="Packets\Internal\Authorization.cs" />
-    <Compile Include="Packets\Internal\Ping.cs" />
-    <Compile Include="Packets\Internal\PlayerAuthorization.cs" />
-    <Compile Include="Packets\Itemshop.cs" />
-    <Compile Include="Packets\LeaveServer.cs" />
-    <Compile Include="Packets\LeaveVehicle.cs" />
-    <Compile Include="Packets\LevelUp.cs" />
-    <Compile Include="Packets\MapData.cs" />
-    <Compile Include="Packets\Mission.cs" />
-    <Compile Include="Packets\Ping.cs" />
-    <Compile Include="Packets\RoomInvite.cs" />
-    <Compile Include="Packets\RoomJoin.cs" />
-    <Compile Include="Packets\RoomKick.cs" />
-    <Compile Include="Packets\RoomPlayers.cs" />
-    <Compile Include="Packets\RoomCreation.cs" />
-    <Compile Include="Packets\RoomLeave.cs" />
-    <Compile Include="Packets\RoomList.cs" />
-    <Compile Include="Packets\RoomSpectate.cs" />
-    <Compile Include="Packets\RoomSpectators.cs" />
-    <Compile Include="Packets\RoomUpdate.cs" />
-    <Compile Include="Packets\Scoreboard.cs" />
-    <Compile Include="Packets\ServerTime.cs" />
-    <Compile Include="Packets\StartRound.cs" />
-    <Compile Include="Packets\Test.cs" />
-    <Compile Include="Packets\UpdateInventory.cs" />
-    <Compile Include="Packets\UserList.cs" />
-    <Compile Include="Packets\VehicleExplode.cs" />
-    <Compile Include="Packets\VehicleSpawn.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerLogger.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{db6726c2-7f7e-4913-9229-72ef8f4f682c}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
+    <!-- Content files to copy to the output directory -->
     <Content Include="Localization.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="WarRock.ico" />
+    <None Include="App.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+  <ItemGroup>
+    <!-- Project references -->
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+  <!-- WCF Metadata, if applicable, can remain as is -->
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+
 </Project>

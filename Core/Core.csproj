@@ -1,94 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB6726C2-7F7E-4913-9229-72EF8F4F682C}</ProjectGuid>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core</RootNamespace>
     <AssemblyName>Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <RootNamespace>Core</RootNamespace>
+    <Configuration>Debug</Configuration>
+    <Platform>AnyCPU</Platform>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp">
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="mysql.data">
-      <HintPath>..\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <!-- NuGet package references (use latest versions for .NET 8) -->
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="Database\Connection.cs" />
-    <Compile Include="Database\Database.cs" />
-    <Compile Include="Database\ConnectionDetails.cs" />
-    <Compile Include="Database\DatabasePool.cs" />
-    <Compile Include="Database\MySQL.cs" />
-    <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Enums\InternalPackets.cs" />
-    <Compile Include="Enums\Internal\AuthorizationErrorCodes.cs" />
-    <Compile Include="Enums\Internal\Player Authorization\UpdateAction.cs" />
-    <Compile Include="Enums\Internal\Player Authorization\UpdateInGame.cs" />
-    <Compile Include="Enums\Internal\PlayerAuthorizationErrorCodes.cs" />
-    <Compile Include="Enums\Internal\Player Authorization\UpdateLobbyType.cs" />
-    <Compile Include="Enums\Internal\Player Authorization\UpdateType.cs" />
-    <Compile Include="Enums\Packets.cs" />
-    <Compile Include="Enums\Ports.cs" />
-    <Compile Include="Enums\ServerTypes.cs" />
-    <Compile Include="Files\BinHandler.cs" />
-    <Compile Include="Files\BinReader.cs" />
-    <Compile Include="Files\Bin\TypedObject.cs" />
-    <Compile Include="IO\ConfigParser.cs" />
-    <Compile Include="IO\INIFile.cs" />
-    <Compile Include="LevelCalculator.cs" />
-    <Compile Include="Networking\InPacket.cs" />
-    <Compile Include="Networking\OutPacket.cs" />
-    <Compile Include="Networking\PacketStack.cs" />
-    <Compile Include="Packets\Connection.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
+    <!-- Content files to copy to the output directory -->
     <Content Include="ServerConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
